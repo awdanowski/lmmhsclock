@@ -5,6 +5,8 @@ import 'build_dynamic_school_day.dart';
 Column buildDisplay(DateTime rightNow) {
   // int day = 1;
   final day = rightNow.weekday;
+  bool startOfDay = rightNow
+      .isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 6, 45));
   bool endOfDay = rightNow
       .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 14, 24));
 
@@ -14,7 +16,9 @@ Column buildDisplay(DateTime rightNow) {
     case 3:
     case 4:
     case 5:
-      if (endOfDay) {
+      if (startOfDay) {
+        return staticStartOfDay(day);
+      } else if (endOfDay) {
         return staticEndOfDay(day);
       } else {
         return dynamicSchoolDay(day, rightNow);
@@ -33,11 +37,22 @@ Column buildDisplay(DateTime rightNow) {
   }
 }
 
+Column staticStartOfDay(int day) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Text("It's too early!", style: TextStyle(fontSize: 24)),
+      Text("Go back to bed.", style: TextStyle(fontSize: 24))
+    ],
+  );
+}
+
 Column staticEndOfDay(int day) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      Text("School is over!\nGo home.", style: TextStyle(fontSize: 24)),
+      Text("School is over!", style: TextStyle(fontSize: 24)),
+      Text("Go home.", style: TextStyle(fontSize: 24))
     ],
   );
 }
