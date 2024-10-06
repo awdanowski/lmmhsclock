@@ -1,191 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:lmmhsclock/class_schedules.dart';
-import 'package:lmmhsclock/schedule_monday.dart';
+
+import 'build_dynamic_school_day.dart';
 
 Column buildDisplay(DateTime rightNow) {
-  Color myMaroon = Color(0xFF862633);
-  int flexSpacer = 8;
+  // int day = 1;
+  final day = rightNow.weekday;
+  bool endOfDay = rightNow
+      .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 14, 24));
 
-  Schedule currentSchedule = mondaySchedule(rightNow);
+  switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      if (endOfDay) {
+        return staticEndOfDay(day);
+      } else {
+        return dynamicSchoolDay(day, rightNow);
+      }
+    case 6:
+    case 7:
+      return staticWeekend();
+    default:
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text('Unknown day!', style: TextStyle(fontSize: 24)),
+          Icon(Icons.error, size: 50),
+        ],
+      );
+  }
+}
 
-  DateTime firstTime = DateTime(rightNow.year, rightNow.month, rightNow.day, currentSchedule.hour, currentSchedule.minute);
-  DateTime secondTime = DateTime(rightNow.year, rightNow.month, rightNow.day, currentSchedule.hour, currentSchedule.minute);
-  DateTime thirdTime = DateTime(rightNow.year, rightNow.month, rightNow.day, currentSchedule.hour, currentSchedule.minute);
-
+Column staticEndOfDay(int day) {
   return Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      // Container(
-      //   height: 10,
-      // ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,
-                child: Text(currentSchedule.firstCurrent,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,child: Text(currentSchedule.secondCurrent,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 36,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,child: Text(currentSchedule.thirdCurrent,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 36,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-        ],
-      ),
-      Container(
-        height: 10,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Text(
-                "***",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-        ],
-      ),
-      Container(
-        height: 10,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Text(
-                remainingTime.inMinutes.toString(),
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                color: myMaroon,
-                height: 50,
-              ),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-        ],
-      )
+      Text("School is over!\nGo home.", style: TextStyle(fontSize: 24)),
+    ],
+  );
+}
+
+Column staticWeekend() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Text("There's no school today!", style: TextStyle(fontSize: 24)),
     ],
   );
 }

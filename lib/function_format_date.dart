@@ -1,4 +1,4 @@
-import 'date_strings.dart';
+import 'list_date_strings.dart';
 
 String formatDate(DateTime date) {
   // Format the date using the imported lists

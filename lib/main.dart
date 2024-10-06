@@ -107,14 +107,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return CircularProgressIndicator(); // While waiting for the first value
                 } else if (snapshot.hasData) {
-
-                  DateTime rightNow = snapshot.data as DateTime;
+                  DateTime rightNow = snapshot.data!;
 
                   return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       buildDate(snapshot),
                       buildTime(snapshot),
-                      buildDisplay(rightNow)
+                      buildDisplay(rightNow),
                     ],
                   );
                 } else if (snapshot.hasError) {
