@@ -28,6 +28,7 @@ Column buildDisplay(DateTime rightNow) {
       return staticWeekend();
     default:
       return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Unknown day!', style: TextStyle(fontSize: 24)),
@@ -39,6 +40,7 @@ Column buildDisplay(DateTime rightNow) {
 
 Column staticStartOfDay(int day) {
   return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Text("It's too early!", style: TextStyle(fontSize: 24)),
@@ -49,6 +51,7 @@ Column staticStartOfDay(int day) {
 
 Column staticEndOfDay(int day) {
   return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Text("School is over!", style: TextStyle(fontSize: 24)),

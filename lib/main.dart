@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return CircularProgressIndicator(); // While waiting for the first value
                 } else if (snapshot.hasData) {
                   DateTime rightNow = snapshot.data!;
-
+                  // DateTime rightNow = DateTime(2024, 10, 7, 12, 23);
                   return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       buildDate(snapshot),

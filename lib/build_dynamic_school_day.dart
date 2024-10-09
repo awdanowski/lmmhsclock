@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lmmhsclock/function_parse_time.dart';
 import 'package:lmmhsclock/function_standard_schedule.dart';
@@ -69,8 +70,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
               child: Container(
                 color: myMaroon,
                 height: 50,
-                child: Text(
+                child: AutoSizeText(
                   currentSchedule.firstCurrent,
+                  maxLines: 1,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
@@ -90,8 +92,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
               child: Container(
                 color: myMaroon,
                 height: 50,
-                child: Text(
+                child: AutoSizeText(
                   currentSchedule.secondCurrent,
+                  maxLines: 1,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
@@ -111,8 +114,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
               child: Container(
                 color: myMaroon,
                 height: 50,
-                child: Text(
+                child: AutoSizeText(
                   currentSchedule.thirdCurrent,
+                  maxLines: 1,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
@@ -140,8 +144,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
             flex: flexSpacer,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Text(
-                parseTime(currentSchedule.firstDateTime) + " mins",
+              child: AutoSizeText(
+                "${parseTime(currentSchedule.firstDateTime)} mins",
+                maxLines: 1,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 22),
               ),
@@ -154,8 +159,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
             flex: flexSpacer,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Text(
-                parseTime(currentSchedule.secondDateTime) + " mins",
+              child: AutoSizeText(
+                "${parseTime(currentSchedule.secondDateTime)} mins",
+                maxLines: 1,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 22),
               ),
@@ -168,8 +174,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
             flex: flexSpacer,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Text(
-                parseTime(currentSchedule.thirdDateTime) + " mins",
+              child: AutoSizeText(
+                "${parseTime(currentSchedule.thirdDateTime)} mins",
+                maxLines: 1,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 22),
               ),
@@ -209,8 +216,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
               child: Container(
                 color: myMaroon,
                 height: 50,
-                child: Text(
+                child: AutoSizeText(
                   currentSchedule.firstNext,
+                  maxLines: 1,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
@@ -230,8 +238,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
               child: Container(
                 color: myMaroon,
                 height: 50,
-                child: Text(
+                child: AutoSizeText(
                   currentSchedule.secondNext,
+                  maxLines: 1,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
@@ -251,8 +260,9 @@ Column dynamicSchoolDay(int day, DateTime rightNow) {
               child: Container(
                 color: myMaroon,
                 height: 50,
-                child: Text(
+                child: AutoSizeText(
                   currentSchedule.thirdNext,
+                  maxLines: 1,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 36,
