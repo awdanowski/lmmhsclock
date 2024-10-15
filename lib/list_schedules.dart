@@ -1,4 +1,4 @@
-import 'class_schedules.dart';
+import 'class_schedule.dart';
 
 List<Schedule> mondayList = [
   Schedule(
@@ -1322,3 +1322,7 @@ List<Schedule> fridayList = [
       thirdNext: "B",
       thirdDateTime: "7:45"),
 ];
+
+List<Schedule> earlyDismissalList = [];
+
+List<Schedule> lateArrivalList = [];

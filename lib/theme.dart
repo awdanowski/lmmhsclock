@@ -76,7 +76,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
 }
 
 class AppTheme {
-  static const Color lmmhsCrimson = Color(0xff862633); // Beer Color 15
+  static const Color lmmhsCrimson = Color(0xff660000); // Beer Color 15
   static const Color lmmhsGold = Color(0xfff7b314); // Beer Color 10
 
   static final light = ThemeData.light().copyWith(
@@ -84,18 +84,19 @@ class AppTheme {
     brightness: Brightness.light,
     dialogBackgroundColor: Colors.white,
     highlightColor: lmmhsCrimson,
-    primaryColor: lmmhsCrimson, // Beer Color 15
+    primaryColor: lmmhsGold,
     scaffoldBackgroundColor: Color(0xfff5f5f5),
     secondaryHeaderColor: lmmhsCrimson,
 
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: Colors.white,
       elevation: 3.0,
-      foregroundColor: lmmhsCrimson,
+      backgroundColor: lmmhsCrimson,
+      foregroundColor: Colors.white,
+      titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
       scrolledUnderElevation: 3.0,
       shadowColor: Colors.black,
-      surfaceTintColor: Colors.white,
+      surfaceTintColor: lmmhsCrimson,
     ),
     bottomAppBarTheme: BottomAppBarTheme(
       surfaceTintColor: Colors.white,

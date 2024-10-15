@@ -1,4 +1,4 @@
-import 'class_schedules.dart';
+import 'class_schedule.dart';
 
 Schedule standardSchedule(List<Schedule> todayList, DateTime rightNow) {
   for (Schedule item in todayList) {

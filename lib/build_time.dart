@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
-Text buildTime(AsyncSnapshot<DateTime> snapshot) {
+Text buildTime(DateTime date) {
   String theHour = "";
   String modifier = "";
-  if (snapshot.data!.hour > 12) {
-    int tempInt = snapshot.data!.hour - 12;
+  if (date.hour > 12) {
+    int tempInt = date.hour - 12;
     modifier = "pm";
     theHour = tempInt.toString();
+  } else if (date.hour == 12) {
+    modifier = "pm";
+    theHour = "12";
   } else {
     modifier = "am";
-    theHour = snapshot.data!.hour.toString();
+    theHour = date.hour.toString();
   }
-  String theMinute = snapshot.data!.minute.toString().padLeft(2, '0');
-  String theSecond = snapshot.data!.second.toString().padLeft(2, '0');
+  String theMinute = date.minute.toString().padLeft(2, '0');
+  String theSecond = date.second.toString().padLeft(2, '0');
   return Text(
     "$theHour:$theMinute:$theSecond $modifier",
     style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
