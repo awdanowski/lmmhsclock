@@ -96,10 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   } else if (snapshot.hasData) {
                     /// This is the actual line
-                    DateTime rightNow = snapshot.data!;
+                    // DateTime rightNow = snapshot.data!;
 
                     /// This is so I can test different dates
-                    // DateTime rightNow = DateTime(2024, 11, 1, 12, 23);
+                    DateTime rightNow = DateTime(2024, 11, 7, 11, 23);
 
                     final String year = rightNow.year.toString();
                     final String month =
@@ -115,12 +115,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        AutoSizeText(
-                          specialDay.displayText,
-                          style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: AutoSizeText(
+                                textAlign: TextAlign.center,
+                                specialDay.displayText,
+                                style: TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
-                        buildDate(rightNow),
+                        Row(
+                          children: [
+                            Expanded(flex: 1, child: buildDate(rightNow)),
+                          ],
+                        ),
                         buildTime(rightNow),
                         Expanded(
                             flex: 1, child: buildDisplay(rightNow, specialDay)),

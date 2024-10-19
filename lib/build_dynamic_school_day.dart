@@ -78,6 +78,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
 
   Color myMaroon = Color(0xFF862633);
   int flexSpacer = 8;
+  double cornerRadius = 10.0;
 
   return Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -107,8 +108,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: Container(
+                padding: EdgeInsets.all(4.0),
                 color: myMaroon,
                 height: 50,
                 child: AutoSizeText(
@@ -129,8 +131,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: Container(
+                padding: EdgeInsets.all(4.0),
                 color: myMaroon,
                 height: 50,
                 child: AutoSizeText(
@@ -151,8 +154,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: Container(
+                padding: EdgeInsets.all(4.0),
                 color: myMaroon,
                 height: 50,
                 child: AutoSizeText(
@@ -172,9 +176,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           ),
         ],
       ),
-      Container(
-        height: 10,
-      ),
+      // Container(
+      //   height: 10,
+      // ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -184,7 +188,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: AutoSizeText(
                 "${parseTime(currentSchedule.firstDateTime)} mins",
                 maxLines: 1,
@@ -199,7 +203,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: AutoSizeText(
                 "${parseTime(currentSchedule.secondDateTime)} mins",
                 maxLines: 1,
@@ -214,7 +218,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: AutoSizeText(
                 "${parseTime(currentSchedule.thirdDateTime)} mins",
                 maxLines: 1,
@@ -253,8 +257,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: Container(
+                padding: EdgeInsets.all(4.0),
                 color: myMaroon,
                 height: 50,
                 child: AutoSizeText(
@@ -275,8 +280,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: Container(
+                padding: EdgeInsets.all(4.0),
                 color: myMaroon,
                 height: 50,
                 child: AutoSizeText(
@@ -297,8 +303,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Expanded(
             flex: flexSpacer,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(cornerRadius),
               child: Container(
+                padding: EdgeInsets.all(4.0),
                 color: myMaroon,
                 height: 50,
                 child: AutoSizeText(
@@ -317,7 +324,10 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
         ],
-      )
+      ),
+      Container(
+        height: 10,
+      ),
     ],
   );
 }

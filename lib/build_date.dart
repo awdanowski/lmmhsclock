@@ -16,7 +16,9 @@ AutoSizeText buildDate(DateTime date) {
   String formattedDate = "$dayOfWeek, $month $day, $year";
 
   return AutoSizeText(
+    textAlign: TextAlign.center,
+    maxLines: 1,
     formattedDate,
-    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
   );
 }
