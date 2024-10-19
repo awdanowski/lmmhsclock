@@ -9,8 +9,11 @@ Row buildLogo() {
       ),
       Expanded(
         flex: 2,
-        child: Image(
-          image: AssetImage("images/L_with_Lenox.png"),
+        child: Container(
+          padding: EdgeInsets.all(4.0),
+          child: Image(
+            image: AssetImage("images/L_with_Lenox.png"),
+          ),
         ),
       ),
       Expanded(

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   AppColorsExtension({
@@ -93,7 +93,8 @@ class AppTheme {
       elevation: 3.0,
       backgroundColor: lmmhsCrimson,
       foregroundColor: Colors.white,
-      titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+      titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 36, color: lmmhsGold),
       scrolledUnderElevation: 3.0,
       shadowColor: Colors.black,
       surfaceTintColor: lmmhsCrimson,
