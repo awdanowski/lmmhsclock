@@ -90,11 +90,10 @@ class AppTheme {
 
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      elevation: 3.0,
+      elevation: 5.0,
       backgroundColor: lmmhsCrimson,
-      foregroundColor: Colors.white,
-      titleTextStyle: TextStyle(
-          fontWeight: FontWeight.bold, fontSize: 36, color: lmmhsGold),
+      foregroundColor: lmmhsGold,
+      titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
       scrolledUnderElevation: 3.0,
       shadowColor: Colors.black,
       surfaceTintColor: lmmhsCrimson,
@@ -154,13 +153,15 @@ class AppTheme {
     dialogBackgroundColor: Colors.grey.shade900,
     highlightColor: lmmhsGold,
     primaryColor: lmmhsGold,
-    scaffoldBackgroundColor: Colors.grey.shade900,
+    scaffoldBackgroundColor: Colors.grey.shade800,
     secondaryHeaderColor: lmmhsGold,
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      color: Colors.grey.shade900,
-      elevation: 3.0,
-      foregroundColor: lmmhsGold,
+      titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 36, color: lmmhsGold),
+      elevation: 5.0,
+      backgroundColor: lmmhsCrimson,
+      // foregroundColor: lmmhsGold,
       scrolledUnderElevation: 3.0,
       shadowColor: Colors.black,
       surfaceTintColor: Colors.black,

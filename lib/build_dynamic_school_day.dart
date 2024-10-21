@@ -89,7 +89,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Text(
             "Currently:",
             style: TextStyle(
-              color: Colors.black,
+              // color: Colors.black,
               fontSize: 36,
             ),
             textAlign: TextAlign.center,
@@ -241,7 +241,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Text(
             "Next Up:",
             style: TextStyle(
-              color: Colors.black,
+              // color: Colors.black,
               fontSize: 36,
             ),
             textAlign: TextAlign.center,

@@ -77,21 +77,43 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+            // Expanded(
+            //   flex: 2,
+            //   child: buildLogo(),
+            // ),
             Expanded(
-              flex: 2,
-              child: buildLogo(),
-            ),
-            Expanded(
-              flex: 3,
+              flex: 1,
               child: StreamBuilder<DateTime>(
                 stream: currentTimeStream(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Row(
-                      // While waiting for the first value
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    return Column(
                       children: [
-                        CircularProgressIndicator(),
+                        Expanded(
+                          flex: 2,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: buildLogo(),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: SizedBox(),
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            // While waiting for the first value
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CircularProgressIndicator(),
+                            ],
+                          ),
+                        ),
                       ],
                     );
                   } else if (snapshot.hasData) {
@@ -99,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     DateTime rightNow = snapshot.data!;
 
                     /// This is so I can test different dates
-                    // DateTime rightNow = DateTime(2024, 11, 7, 11, 23);
+                    // DateTime rightNow = DateTime(2024, 11, 1, 11, 16);
 
                     final String year = rightNow.year.toString();
                     final String month =
@@ -110,32 +132,61 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     SpecialDay specialDay = specialDays[key] ??
                         SpecialDay(
-                            schedule: ScheduleType.standard, displayText: "");
+                          schedule: ScheduleType.standard,
+                          displayText: "",
+                        );
 
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: AutoSizeText(
-                                textAlign: TextAlign.center,
-                                specialDay.displayText,
-                                style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Expanded(flex: 1, child: buildDate(rightNow)),
-                          ],
-                        ),
-                        buildTime(rightNow),
                         Expanded(
-                            flex: 1, child: buildDisplay(rightNow, specialDay)),
+                          flex: 2,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: buildLogo(),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: buildTime(rightNow),
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: AutoSizeText(
+                                      textAlign: TextAlign.center,
+                                      specialDay.displayText,
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                          padding: EdgeInsets.all(8.0),
+                                          child: buildDate(rightNow))),
+                                ],
+                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: buildDisplay(rightNow, specialDay)),
+                            ],
+                          ),
+                        ),
                       ],
                     );
                   } else if (snapshot.hasError) {
@@ -149,6 +200,61 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      // bottomNavigationBar: BottomNavigationBarWidget(),
+    );
+  }
+}
+
+class BottomNavigationBarWidget extends StatelessWidget {
+  void _openModal(BuildContext context, String schedule) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          padding: EdgeInsets.all(16.0),
+          height: 200,
+          child: Center(
+            child: Text(
+              'Showing $schedule',
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.schedule),
+          label: '1st Lunch',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.schedule),
+          label: '2nd Lunch',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.schedule),
+          label: '3rd Lunch',
+        ),
+      ],
+      onTap: (index) {
+        // Handle button taps
+        switch (index) {
+          case 0:
+            _openModal(context, 'Schedule 1');
+            break;
+          case 1:
+            _openModal(context, 'Schedule 2');
+            break;
+          case 2:
+            _openModal(context, 'Schedule 3');
+            break;
+        }
+      },
     );
   }
 }
