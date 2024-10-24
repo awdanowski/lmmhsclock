@@ -19,7 +19,8 @@ Column buildDisplay(DateTime rightNow, SpecialDay specialDay) {
       return staticVacation();
     case ScheduleType.standard:
     case ScheduleType.delayedStart:
-    case ScheduleType.earlyDismissal:
+    case ScheduleType.earlyDismissal11_1:
+    case ScheduleType.earlyDismissal4_18:
       return dynamicSchoolDay(specialDay, rightNow);
     default:
       return Column(

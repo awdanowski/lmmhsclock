@@ -1,9 +1,9 @@
 import 'package:lmmhsclock/class_special_days.dart';
 
 Map<String, SpecialDay> specialDays = {
-  '2024-08-29': SpecialDay(
-      schedule: ScheduleType.earlyDismissal,
-      displayText: 'First Day of School'),
+  // '2024-08-29': SpecialDay(
+  //     schedule: ScheduleType.earlyDismissal,
+  //     displayText: 'First Day of School'),
   '2024-09-02':
       SpecialDay(schedule: ScheduleType.holiday, displayText: 'Labor Day'),
   '2024-09-06': SpecialDay(
@@ -53,7 +53,7 @@ Map<String, SpecialDay> specialDays = {
   '2024-10-31':
       SpecialDay(schedule: ScheduleType.standard, displayText: 'Halloween'),
   '2024-11-01': SpecialDay(
-      schedule: ScheduleType.earlyDismissal, displayText: 'Early Release'),
+      schedule: ScheduleType.earlyDismissal11_1, displayText: 'Early Release'),
   '2024-11-03': SpecialDay(schedule: ScheduleType.sunday, displayText: 'DST'),
   '2024-11-05':
       SpecialDay(schedule: ScheduleType.standard, displayText: 'Election Day'),
@@ -127,7 +127,7 @@ Map<String, SpecialDay> specialDays = {
   '2025-04-12': SpecialDay(
       schedule: ScheduleType.saturday, displayText: 'Start of Passover'),
   '2025-04-18': SpecialDay(
-      schedule: ScheduleType.earlyDismissal, displayText: 'Early Release'),
+      schedule: ScheduleType.earlyDismissal4_18, displayText: 'Early Release'),
   '2025-04-20':
       SpecialDay(schedule: ScheduleType.sunday, displayText: 'Easter'),
   '2025-04-21': SpecialDay(
@@ -150,8 +150,8 @@ Map<String, SpecialDay> specialDays = {
       SpecialDay(schedule: ScheduleType.standard, displayText: 'Shavuot'),
   '2025-06-08':
       SpecialDay(schedule: ScheduleType.sunday, displayText: 'Graduation'),
-  '2025-06-16': SpecialDay(
-      schedule: ScheduleType.earlyDismissal, displayText: 'Early Release'),
+  // '2025-06-16': SpecialDay(
+  //     schedule: ScheduleType.earlyDismissal, displayText: 'Early Release'),
   '2025-06-19':
       SpecialDay(schedule: ScheduleType.holiday, displayText: 'Juneteenth'),
 };

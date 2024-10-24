@@ -118,10 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   } else if (snapshot.hasData) {
                     /// This is the actual line
-                    DateTime rightNow = snapshot.data!;
+                    // DateTime rightNow = snapshot.data!;
 
                     /// This is so I can test different dates
-                    // DateTime rightNow = DateTime(2024, 11, 1, 11, 16);
+                    DateTime rightNow = DateTime(2024, 11, 1, 12, 16);
 
                     final String year = rightNow.year.toString();
                     final String month =
@@ -206,6 +206,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class BottomNavigationBarWidget extends StatelessWidget {
+  const BottomNavigationBarWidget({super.key});
+
   void _openModal(BuildContext context, String schedule) {
     showModalBottomSheet(
       context: context,

@@ -27,8 +27,12 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
 
   final bool endOfDay;
 
-  if (specialDay.schedule == ScheduleType.earlyDismissal) {
+  if (specialDay.schedule == ScheduleType.earlyDismissal11_1) {
     dayOfTheWeek = 11;
+    endOfDay = rightNow
+        .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 11, 15));
+  } else if (specialDay.schedule == ScheduleType.earlyDismissal4_18) {
+    dayOfTheWeek = 12;
     endOfDay = rightNow
         .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 11, 15));
   } else {
@@ -60,11 +64,15 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
         currentSchedule = standardSchedule(fridayList, rightNow);
         break;
       case 10:
-        currentSchedule = standardSchedule(earlyDismissalList, rightNow);
-        break;
-      case 11:
         currentSchedule = standardSchedule(lateArrivalList, rightNow);
         break;
+      case 11:
+        currentSchedule = standardSchedule(earlyDismissal11_1List, rightNow);
+        break;
+      case 12:
+        currentSchedule = standardSchedule(earlyDismissal4_18List, rightNow);
+        break;
+
       default:
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,

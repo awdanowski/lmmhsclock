@@ -9,7 +9,8 @@ class SpecialDay {
 
 enum ScheduleType {
   standard,
-  earlyDismissal,
+  earlyDismissal11_1,
+  earlyDismissal4_18,
   delayedStart,
   holiday,
   vacation,
