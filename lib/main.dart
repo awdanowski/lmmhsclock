@@ -8,6 +8,7 @@ import 'build_date.dart';
 import 'build_logo.dart';
 import 'build_time.dart';
 import 'class_special_days.dart';
+import 'function_get_schedule_type.dart';
 import 'map_special_days.dart';
 import 'stream_current_time.dart';
 
@@ -77,10 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            // Expanded(
-            //   flex: 2,
-            //   child: buildLogo(),
-            // ),
             Expanded(
               flex: 1,
               child: StreamBuilder<DateTime>(
@@ -117,11 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     );
                   } else if (snapshot.hasData) {
-                    /// This is the actual line
                     DateTime rightNow = snapshot.data!;
-
-                    /// This is so I can test different dates
-                    // DateTime rightNow = DateTime(2024, 11, 1, 12, 16);
 
                     final String year = rightNow.year.toString();
                     final String month =
@@ -132,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     SpecialDay specialDay = specialDays[key] ??
                         SpecialDay(
-                          schedule: ScheduleType.standard,
+                          schedule: getScheduleTypeForToday(rightNow),
                           displayText: "",
                         );
 

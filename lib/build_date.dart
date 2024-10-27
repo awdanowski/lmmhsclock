@@ -14,22 +14,22 @@ AutoSizeText buildDate(DateTime date) {
   // Handle the special cases for 11, 12, and 13, which always end in 'th'
   if (date.day >= 11 && date.day <= 13) {
     suffix = 'th';
-  }
-
-  // Otherwise, use modular arithmetic to determine the suffix
-  switch (date.day % 10) {
-    case 1:
-      suffix = 'st';
-      break;
-    case 2:
-      suffix = 'nd';
-      break;
-    case 3:
-      suffix = 'rd';
-      break;
-    default:
-      suffix = 'th';
-      break;
+  } else {
+    // Otherwise, use modular arithmetic to determine the suffix
+    switch (date.day % 10) {
+      case 1:
+        suffix = 'st';
+        break;
+      case 2:
+        suffix = 'nd';
+        break;
+      case 3:
+        suffix = 'rd';
+        break;
+      default:
+        suffix = 'th';
+        break;
+    }
   }
 
   String month = months[date.month - 1];

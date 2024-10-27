@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   AppColorsExtension({
-    required this.activeColor,
+    required this.containerColor,
     required this.background,
     required this.beerVeryPale,
     required this.beerPale,
@@ -14,7 +14,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.stickyHeader,
     required this.colorRangeBorder,
   });
-  final Color activeColor;
+
+  final Color containerColor;
   final Color background;
   final Color beerVeryPale;
   final Color beerPale;
@@ -26,8 +27,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color colorRangeBorder;
 
   @override
-  ThemeExtension<AppColorsExtension> copyWith(
-      {Color? activeColor,
+  ThemeExtension<AppColorsExtension> copyWith({Color? containerColor,
         Color? background,
         Color? beerVeryPale,
         Color? beerPale,
@@ -38,7 +38,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
         Color? stickyHeader,
         Color? colorRangeBorder}) {
     return AppColorsExtension(
-      activeColor: activeColor ?? this.activeColor,
+      containerColor: containerColor ?? this.containerColor,
       background: background ?? this.background,
       beerVeryPale: beerVeryPale ?? this.beerVeryPale,
       beerPale: beerPale ?? this.beerPale,
@@ -61,7 +61,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     }
 
     return AppColorsExtension(
-      activeColor: Color.lerp(activeColor, other.activeColor, t)!,
+      containerColor: Color.lerp(containerColor, other.containerColor, t)!,
       background: Color.lerp(background, other.background, t)!,
       beerVeryPale: Color.lerp(beerVeryPale, other.beerVeryPale, t)!,
       beerPale: Color.lerp(beerPale, other.beerPale, t)!,
@@ -221,7 +221,7 @@ class AppTheme {
 
   static final _lightAppColors = AppColorsExtension(
     // primary: const Color(0xffeeeeee),
-    activeColor: const Color(0xffB65300),
+    containerColor: const Color(0xff660000),
     background: Colors.white,
     beerVeryPale: const Color(0xffF8B323),
     beerPale: const Color(0xffDA7E01), // Beer Color 10
@@ -235,7 +235,7 @@ class AppTheme {
 
   static final _darkAppColors = AppColorsExtension(
     // primary: const Color(0xff222222),
-    activeColor: const Color(0xffDA7E01),
+    containerColor: const Color(0xff660000),
     background: Colors.black,
     beerVeryPale: const Color(0xffFEE799), // Beer Color 1
     beerPale: const Color(0xffF8B323), // Beer Color 5

@@ -1,9 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lmmhsclock/class_special_days.dart';
 import 'package:lmmhsclock/function_parse_time.dart';
 import 'package:lmmhsclock/function_standard_schedule.dart';
 import 'package:lmmhsclock/list_schedules.dart';
+import 'package:lmmhsclock/widget_minute_tile.dart';
+import 'package:lmmhsclock/widget_schedule_tile.dart';
 import 'package:lmmhsclock/widget_static_messages.dart';
 
 import 'class_schedule.dart';
@@ -84,10 +85,6 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
     }
   }
 
-  Color myMaroon = Color(0xFF862633);
-  int flexSpacer = 8;
-  double cornerRadius = 10.0;
-
   return Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
@@ -114,71 +111,18 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: Container(
-                padding: EdgeInsets.all(4.0),
-                color: myMaroon,
-                height: 50,
-                child: AutoSizeText(
-                  currentSchedule.firstCurrent,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
+              flex: 8, child: ScheduleTile(text: currentSchedule.firstCurrent)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: Container(
-                padding: EdgeInsets.all(4.0),
-                color: myMaroon,
-                height: 50,
-                child: AutoSizeText(
-                  currentSchedule.secondCurrent,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
+              flex: 8,
+              child: ScheduleTile(text: currentSchedule.secondCurrent)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: Container(
-                padding: EdgeInsets.all(4.0),
-                color: myMaroon,
-                height: 50,
-                child: AutoSizeText(
-                  currentSchedule.thirdCurrent,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
+              flex: 8, child: ScheduleTile(text: currentSchedule.thirdCurrent)),
           Spacer(
             flex: 1,
           ),
@@ -193,47 +137,20 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Spacer(
             flex: 1,
           ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: AutoSizeText(
-                "${parseTime(currentSchedule.firstDateTime)} mins",
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
+          MinuteTile(
+            text: parseTime(currentSchedule.firstDateTime),
           ),
           Spacer(
             flex: 1,
           ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: AutoSizeText(
-                "${parseTime(currentSchedule.secondDateTime)} mins",
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
+          MinuteTile(
+            text: parseTime(currentSchedule.secondDateTime),
           ),
           Spacer(
             flex: 1,
           ),
-          Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: AutoSizeText(
-                "${parseTime(currentSchedule.thirdDateTime)} mins",
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22),
-              ),
-            ),
+          MinuteTile(
+            text: parseTime(currentSchedule.thirdDateTime),
           ),
           Spacer(
             flex: 1,
@@ -263,71 +180,17 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: Container(
-                padding: EdgeInsets.all(4.0),
-                color: myMaroon,
-                height: 50,
-                child: AutoSizeText(
-                  currentSchedule.firstNext,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
+              flex: 8, child: ScheduleTile(text: currentSchedule.firstNext)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: Container(
-                padding: EdgeInsets.all(4.0),
-                color: myMaroon,
-                height: 50,
-                child: AutoSizeText(
-                  currentSchedule.secondNext,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
+              flex: 8, child: ScheduleTile(text: currentSchedule.secondNext)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-            flex: flexSpacer,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cornerRadius),
-              child: Container(
-                padding: EdgeInsets.all(4.0),
-                color: myMaroon,
-                height: 50,
-                child: AutoSizeText(
-                  currentSchedule.thirdNext,
-                  maxLines: 1,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
+              flex: 8, child: ScheduleTile(text: currentSchedule.thirdNext)),
           Spacer(
             flex: 1,
           ),
