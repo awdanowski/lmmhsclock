@@ -1,11 +1,11 @@
 class ScheduleEntry {
   ScheduleEntry({
     required this.current,
+    required this.ends,
     required this.next,
-    required this.dateTime,
   });
 
   String current;
+  String ends;
   String next;
-  String dateTime;
 }

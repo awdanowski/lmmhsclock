@@ -15,6 +15,7 @@ class ScheduleTile extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8.0), // Fixed corner radius
       child: Container(
+        alignment: Alignment.center,
         padding: const EdgeInsets.all(4.0),
         color: Theme.of(context)
             .extension<AppColorsExtension>()

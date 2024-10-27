@@ -1,3 +1,5 @@
+import 'package:lmmhsclock/map_schedule_entries.dart';
+
 import 'class_schedule.dart';
 
 Schedule standardSchedule(List<Schedule> todayList, DateTime rightNow) {
@@ -7,6 +9,12 @@ Schedule standardSchedule(List<Schedule> todayList, DateTime rightNow) {
       return item;
     }
   }
-  return Schedule(hour: 12, minute: 00, firstCurrent: "Unknown", firstNext: "Unknown", firstDateTime: "12:00", secondCurrent: "Unknown", secondNext: "Unknown", secondDateTime: "12:00", thirdCurrent: "Unknown", thirdNext: "Unknown", thirdDateTime: "12:00");
+  return Schedule(
+    hour: 12,
+    minute: 00,
+    first: scheduleEntries["Unknown"]!,
+    second: scheduleEntries["Unknown"]!,
+    third: scheduleEntries["Unknown"]!,
+  );
 }
 

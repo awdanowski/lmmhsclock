@@ -111,18 +111,20 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.firstCurrent)),
+              flex: 8,
+              child: ScheduleTile(text: currentSchedule.first.current)),
           Spacer(
             flex: 1,
           ),
           Expanded(
               flex: 8,
-              child: ScheduleTile(text: currentSchedule.secondCurrent)),
+              child: ScheduleTile(text: currentSchedule.second.current)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.thirdCurrent)),
+              flex: 8,
+              child: ScheduleTile(text: currentSchedule.third.current)),
           Spacer(
             flex: 1,
           ),
@@ -138,19 +140,19 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.firstDateTime),
+            text: parseTime(currentSchedule.first.ends),
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.secondDateTime),
+            text: parseTime(currentSchedule.second.ends),
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.thirdDateTime),
+            text: parseTime(currentSchedule.third.ends),
           ),
           Spacer(
             flex: 1,
@@ -180,17 +182,17 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.firstNext)),
+              flex: 8, child: ScheduleTile(text: currentSchedule.first.next)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.secondNext)),
+              flex: 8, child: ScheduleTile(text: currentSchedule.second.next)),
           Spacer(
             flex: 1,
           ),
           Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.thirdNext)),
+              flex: 8, child: ScheduleTile(text: currentSchedule.third.next)),
           Spacer(
             flex: 1,
           ),
