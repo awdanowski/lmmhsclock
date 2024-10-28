@@ -908,19 +908,19 @@ List<Schedule> lateArrivalList = [
   Schedule(
       hour: 11,
       minute: 37,
-      first: scheduleEntries["E-F-1207"]!,
+      first: scheduleEntries["E-1207-F"]!,
       second: scheduleEntries["L-1207-F"]!,
       third: scheduleEntries["F-1220-L"]!),
   Schedule(
       hour: 11,
       minute: 34,
-      first: scheduleEntries["E-F-1207"]!,
+      first: scheduleEntries["E-1207-F"]!,
       second: scheduleEntries["Pass-1137-L"]!,
       third: scheduleEntries["Pass-1137-F"]!),
   Schedule(
       hour: 11,
       minute: 24,
-      first: scheduleEntries["E-F-1207"]!,
+      first: scheduleEntries["E-1207-F"]!,
       second: scheduleEntries["E-1134-L"]!,
       third: scheduleEntries["E-1134-F"]!),
   Schedule(

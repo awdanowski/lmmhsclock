@@ -93,7 +93,7 @@ class AppTheme {
       elevation: 5.0,
       backgroundColor: lmmhsCrimson,
       foregroundColor: lmmhsGold,
-      titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+      titleTextStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 36, color: lmmhsGold),
       scrolledUnderElevation: 3.0,
       shadowColor: Colors.black,
       surfaceTintColor: lmmhsCrimson,
