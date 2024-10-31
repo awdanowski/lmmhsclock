@@ -1,5 +1,5 @@
 
-String parseTime(String timeString) {
+String parseTime(String timeString, DateTime rightNow) {
 
   // Split the string into hours and minutes
   List<String> parts = timeString.split(':');
@@ -7,12 +7,12 @@ String parseTime(String timeString) {
   int minute = int.parse(parts[1]);
 
   // Get the current date
-  DateTime now = DateTime.now();
+  // DateTime now = DateTime.now();
 
   // Create a DateTime object using the current date and the extracted time
-  DateTime dateTime = DateTime(now.year, now.month, now.day, hour, minute);
+  DateTime dateTime = DateTime(rightNow.year, rightNow.month, rightNow.day, hour, minute);
 
-  final timeDifference = dateTime.difference(now);
+  final timeDifference = dateTime.difference(rightNow);
 
   final difference = timeDifference.inMinutes + 1;
   // Print the resulting DateTime object

@@ -140,19 +140,19 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.first.ends),
+            text: parseTime(currentSchedule.first.ends, rightNow),
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.second.ends),
+            text: parseTime(currentSchedule.second.ends, rightNow),
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.third.ends),
+            text: parseTime(currentSchedule.third.ends, rightNow),
           ),
           Spacer(
             flex: 1,
