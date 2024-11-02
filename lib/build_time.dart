@@ -17,7 +17,7 @@ Text buildTime(DateTime date) {
   String theMinute = date.minute.toString().padLeft(2, '0');
   String theSecond = date.second.toString().padLeft(2, '0');
   return Text(
-    "$theHour:$theMinute:$theSecond", textAlign: TextAlign.center,
+    "$theHour:$theMinute:$theSecond", textAlign: TextAlign.left,
     // $modifier",
     style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
   );

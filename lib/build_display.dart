@@ -5,7 +5,7 @@ import 'package:lmmhsclock/widget_static_messages.dart';
 import 'build_dynamic_school_day.dart';
 
 Column buildDisplay(DateTime rightNow, SpecialDay specialDay) {
-  // SpecialDay specialDay = specialDays[key] ?? SpecialDay(schedule: ScheduleType.standard, displayText: "");
+  // SpecialDay specialDay = specialDay[key] ?? SpecialDay(schedule: ScheduleType.standard, displayText: "");
 
   /// For a weekend
 

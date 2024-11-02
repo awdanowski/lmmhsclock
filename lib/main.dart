@@ -143,7 +143,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               Expanded(
                                 flex: 1,
-                                child: buildTime(rightNow),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: buildTime(rightNow),
+                                ),
                               )
                             ],
                           ),
