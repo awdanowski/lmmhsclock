@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
       title: 'LMMHS',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'LMMHS'),
     );
   }
