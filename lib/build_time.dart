@@ -1,6 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-Text buildTime(DateTime date) {
+AutoSizeText buildTime(DateTime date) {
   String theHour = "";
   // String modifier = "";
   if (date.hour > 12) {
@@ -16,9 +17,11 @@ Text buildTime(DateTime date) {
   }
   String theMinute = date.minute.toString().padLeft(2, '0');
   String theSecond = date.second.toString().padLeft(2, '0');
-  return Text(
+  return AutoSizeText(
     "$theHour:$theMinute:$theSecond", textAlign: TextAlign.left,
     // $modifier",
-    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+    maxLines: 1,
+    style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+    minFontSize: 12,
   );
 }
