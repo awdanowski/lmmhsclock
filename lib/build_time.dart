@@ -21,7 +21,7 @@ AutoSizeText buildTime(DateTime date) {
     "$theHour:$theMinute:$theSecond", textAlign: TextAlign.left,
     // $modifier",
     maxLines: 1,
-    style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+    style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold, fontFamily: "IBMPlex"),
     minFontSize: 12,
   );
 }
