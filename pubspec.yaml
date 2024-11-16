@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.3+241116
+version: 1.0.4+241116
 
 environment:
   sdk: ^3.5.3
@@ -75,9 +75,6 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: RobotoMono
-       fonts:
-         - asset: images/RobotoMono-SemiBold.ttf
      - family: IBMPlex
        fonts:
          - asset: images/IBMPlexMono-Medium.ttf

@@ -12,11 +12,11 @@ Column buildDisplay(DateTime rightNow, SpecialDay specialDay) {
   switch (specialDay.schedule) {
     case ScheduleType.saturday:
     case ScheduleType.sunday:
-      return staticWeekend();
+      return staticText("weekendMessage");
     case ScheduleType.holiday:
-      return staticHoliday();
+      return staticText('holidayMessage');
     case ScheduleType.vacation:
-      return staticVacation();
+      return staticText("vacationMessage");
     case ScheduleType.standard:
     case ScheduleType.delayedStart:
     case ScheduleType.earlyDismissal11_1:

@@ -155,31 +155,37 @@ class _MyHomePageState extends State<MyHomePage> {
                           flex: 3,
                           child: Column(
                             children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: AutoSizeText(
-                                      textAlign: TextAlign.center,
-                                      specialDay.displayText,
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
+                              Expanded(
+                                flex: 1,
+                                child: Row(
+                                  children: [
+                                    Expanded(
                                       flex: 1,
-                                      child: Container(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: buildDate(rightNow))),
-                                ],
+                                      child: AutoSizeText(
+                                        textAlign: TextAlign.center,
+                                        specialDay.displayText,
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Expanded(
-                                  flex: 1,
+                                flex: 1,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                        flex: 1,
+                                        child: Container(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: buildDate(rightNow))),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                  flex: 5,
                                   child: buildDisplay(rightNow, specialDay)),
                             ],
                           ),

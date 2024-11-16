@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lmmhsclock/class_special_days.dart';
 import 'package:lmmhsclock/function_parse_time.dart';
@@ -10,6 +11,9 @@ import 'package:lmmhsclock/widget_static_messages.dart';
 import 'class_schedule.dart';
 
 Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
+  var minuteGroup = AutoSizeGroup();
+  var textGroup = AutoSizeGroup();
+
   final Schedule currentSchedule;
   int dayOfTheWeek = rightNow.weekday;
 
@@ -42,11 +46,11 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
   }
 
   if (earlyDay) {
-    return staticEarlyDay(dayOfTheWeek);
+    return staticText("earlyDayMessage");
   } else if (startOfDay) {
-    return staticStartOfDay(dayOfTheWeek);
+    return staticText("startOfDayMessage");
   } else if (endOfDay) {
-    return staticEndOfDay(dayOfTheWeek);
+    return staticText("endOfDayMessage");
   } else {
     switch (dayOfTheWeek) {
       case 1:
@@ -91,14 +95,25 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Currently:",
-            style: TextStyle(
-              // color: Colors.black,
-              fontSize: 36,
-            ),
-            textAlign: TextAlign.center,
+          Spacer(
+            flex: 2,
           ),
+          Expanded(
+            flex: 3,
+            child: AutoSizeText(
+              "Currently:",
+              style: TextStyle(
+                // color: Colors.black,
+                fontSize: 36,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              group: textGroup,
+            ),
+          ),
+          Spacer(
+            flex: 2,
+          )
         ],
       ),
       // Container(
@@ -141,18 +156,21 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           ),
           MinuteTile(
             text: parseTime(currentSchedule.first.ends, rightNow),
+            group: minuteGroup,
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
             text: parseTime(currentSchedule.second.ends, rightNow),
+            group: minuteGroup,
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
             text: parseTime(currentSchedule.third.ends, rightNow),
+            group: minuteGroup,
           ),
           Spacer(
             flex: 1,
@@ -165,13 +183,24 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Next Up:",
-            style: TextStyle(
-              // color: Colors.black,
-              fontSize: 36,
+          Spacer(
+            flex: 2,
+          ),
+          Expanded(
+            flex: 3,
+            child: AutoSizeText(
+              "Next Up:",
+              style: TextStyle(
+                // color: Colors.black,
+                fontSize: 36,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              group: textGroup,
             ),
-            textAlign: TextAlign.center,
+          ),
+          Spacer(
+            flex: 2,
           ),
         ],
       ),

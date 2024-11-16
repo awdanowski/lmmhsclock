@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class MinuteTile extends StatelessWidget {
   final String text;
+  final AutoSizeGroup group;
 
   const MinuteTile({
     super.key,
     required this.text,
+    required this.group,
   });
 
   @override
@@ -20,6 +22,7 @@ class MinuteTile extends StatelessWidget {
           maxLines: 1,
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 22),
+          group: group,
         ),
       ),
     );
