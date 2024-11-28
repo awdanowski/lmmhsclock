@@ -1,4 +1,4 @@
-import 'package:lmmhsclock/class_special_days.dart';
+import 'package:lmmhsclock/domain/class_special_days.dart';
 
 Map<String, SpecialDay> specialDays = {
   // '2024-08-29': SpecialDay(
@@ -25,13 +25,14 @@ Map<String, SpecialDay> specialDays = {
   '2024-10-23': SpecialDay(schedule: ScheduleType.standard, displayText: 'Sukkot'),
   '2024-10-24': SpecialDay(schedule: ScheduleType.standard, displayText: 'Shemini Atzerat'),
   '2024-10-25': SpecialDay(schedule: ScheduleType.standard, displayText: 'Simchat Torah'),
-  '2024-10-28': SpecialDay(schedule: ScheduleType.delayedStart, displayText: 'Delayed Start'),
+  '2024-10-28': SpecialDay(schedule: ScheduleType.delayedStart10_28, displayText: 'Delayed Start'),
   '2024-10-30': SpecialDay(schedule: ScheduleType.standard, displayText: 'Parent Conferences'),
   '2024-10-31': SpecialDay(schedule: ScheduleType.standard, displayText: 'Halloween'),
   '2024-11-01': SpecialDay(schedule: ScheduleType.earlyDismissal11_1, displayText: 'Early Release'),
   '2024-11-03': SpecialDay(schedule: ScheduleType.sunday, displayText: 'DST'),
   '2024-11-05': SpecialDay(schedule: ScheduleType.standard, displayText: 'Election Day'),
   '2024-11-11': SpecialDay(schedule: ScheduleType.holiday, displayText: 'Veterans\' Day'),
+  '2024-11-22': SpecialDay(schedule: ScheduleType.pepRally, displayText: 'Pep Rally'),
   '2024-11-25': SpecialDay(schedule: ScheduleType.vacation, displayText: 'Thanksgiving Vacation'),
   '2024-11-26': SpecialDay(schedule: ScheduleType.vacation, displayText: 'Thanksgiving Vacation'),
   '2024-11-27': SpecialDay(schedule: ScheduleType.vacation, displayText: 'Thanksgiving Vacation'),
@@ -63,7 +64,7 @@ Map<String, SpecialDay> specialDays = {
   '2025-02-21': SpecialDay(schedule: ScheduleType.vacation, displayText: 'February Vacation'),
   '2025-03-04': SpecialDay(schedule: ScheduleType.standard, displayText: 'Mid-Point Term Three'),
   '2025-03-13': SpecialDay(schedule: ScheduleType.standard, displayText: 'Purim'),
-  '2025-03-14': SpecialDay(schedule: ScheduleType.delayedStart, displayText: 'Delayed Start'),
+  '2025-03-14': SpecialDay(schedule: ScheduleType.delayedStart3_14, displayText: 'Delayed Start'),
   '2025-04-03': SpecialDay(schedule: ScheduleType.standard, displayText: 'Grades Close'),
   '2025-04-12': SpecialDay(schedule: ScheduleType.saturday, displayText: 'Start of Passover'),
   '2025-04-18': SpecialDay(schedule: ScheduleType.earlyDismissal4_18, displayText: 'Early Release'),

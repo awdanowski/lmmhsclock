@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lmmhsclock/class_special_days.dart';
+import 'package:lmmhsclock/domain/class_special_days.dart';
 import 'package:lmmhsclock/widget_static_messages.dart';
 
 import 'build_dynamic_school_day.dart';
@@ -18,7 +18,7 @@ Column buildDisplay(DateTime rightNow, SpecialDay specialDay) {
     case ScheduleType.vacation:
       return staticText("vacationMessage");
     case ScheduleType.standard:
-    case ScheduleType.delayedStart:
+    case ScheduleType.delayedStart10_28:
     case ScheduleType.earlyDismissal11_1:
     case ScheduleType.earlyDismissal4_18:
       return dynamicSchoolDay(specialDay, rightNow);

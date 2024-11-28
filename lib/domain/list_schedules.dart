@@ -1,4 +1,4 @@
-import 'class_schedule.dart';
+import '../class_schedule.dart';
 import 'map_schedule_entries.dart';
 
 List<Schedule> mondayList = [

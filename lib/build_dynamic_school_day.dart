@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:lmmhsclock/class_special_days.dart';
+import 'package:lmmhsclock/domain/class_special_days.dart';
+import 'package:lmmhsclock/domain/list_schedules.dart';
 import 'package:lmmhsclock/function_parse_time.dart';
 import 'package:lmmhsclock/function_standard_schedule.dart';
-import 'package:lmmhsclock/list_schedules.dart';
 import 'package:lmmhsclock/widget_minute_tile.dart';
 import 'package:lmmhsclock/widget_schedule_tile.dart';
 import 'package:lmmhsclock/widget_static_messages.dart';
@@ -21,7 +21,7 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
       .isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 6, 00));
 
   final bool startOfDay;
-  if (specialDay.schedule == ScheduleType.delayedStart) {
+  if (specialDay.schedule == ScheduleType.delayedStart10_28) {
     dayOfTheWeek = 10;
     startOfDay = rightNow
         .isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 9, 00));

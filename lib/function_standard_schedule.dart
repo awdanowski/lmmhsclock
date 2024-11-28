@@ -1,4 +1,4 @@
-import 'package:lmmhsclock/map_schedule_entries.dart';
+import 'package:lmmhsclock/domain/map_schedule_entries.dart';
 
 import 'class_schedule.dart';
 

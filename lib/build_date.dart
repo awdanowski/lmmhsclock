@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import 'list_date_strings.dart';
+import 'domain/list_date_strings.dart';
 
 AutoSizeText buildDate(DateTime date) {
   // Manually create the formatted date string
