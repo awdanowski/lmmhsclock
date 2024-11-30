@@ -1,92 +1,46 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:lmmhsclock/domain/class_special_days.dart';
-import 'package:lmmhsclock/domain/list_schedules.dart';
+import 'package:lmmhsclock/domain/enums.dart';
+import 'package:lmmhsclock/domain/function_set_schedule.dart';
 import 'package:lmmhsclock/function_parse_time.dart';
-import 'package:lmmhsclock/function_standard_schedule.dart';
 import 'package:lmmhsclock/widget_minute_tile.dart';
 import 'package:lmmhsclock/widget_schedule_tile.dart';
 import 'package:lmmhsclock/widget_static_messages.dart';
 
-import 'class_schedule.dart';
+import 'domain/class_schedule.dart';
 
-Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
+Column dynamicSchoolDay(ScheduleType todaySchedule, DateTime rightNow) {
   var minuteGroup = AutoSizeGroup();
   var textGroup = AutoSizeGroup();
-
   final Schedule currentSchedule;
-  int dayOfTheWeek = rightNow.weekday;
 
-  final bool earlyDay = rightNow
-      .isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 6, 00));
+  /// If it is a school day, check to see if it is too early to be awake
+  final bool earlyDay = rightNow.isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 6, 00));
 
+  /// If it is a school day, check to see when school starts
   final bool startOfDay;
-  if (specialDay.schedule == ScheduleType.delayedStart10_28) {
-    dayOfTheWeek = 10;
-    startOfDay = rightNow
-        .isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 9, 00));
+  if (todaySchedule == ScheduleType.delayedStart) {
+    startOfDay = rightNow.isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 9, 00));
   } else {
-    startOfDay = rightNow
-        .isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 6, 45));
+    startOfDay = rightNow.isBefore(DateTime(rightNow.year, rightNow.month, rightNow.day, 6, 45));
   }
 
+  /// Check to see if the school day has ended
   final bool endOfDay;
-
-  if (specialDay.schedule == ScheduleType.earlyDismissal11_1) {
-    dayOfTheWeek = 11;
-    endOfDay = rightNow
-        .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 11, 15));
-  } else if (specialDay.schedule == ScheduleType.earlyDismissal4_18) {
-    dayOfTheWeek = 12;
-    endOfDay = rightNow
-        .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 11, 15));
+  if (todaySchedule == ScheduleType.earlyDismissal) {
+    endOfDay = rightNow.isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 11, 15));
   } else {
-    endOfDay = rightNow
-        .isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 14, 24));
+    endOfDay = rightNow.isAfter(DateTime(rightNow.year, rightNow.month, rightNow.day, 14, 24));
   }
 
   if (earlyDay) {
-    return staticText("earlyDayMessage");
+    return staticText(StaticMessage.tooEarly);
   } else if (startOfDay) {
-    return staticText("startOfDayMessage");
+    return staticText(StaticMessage.startOfDay);
   } else if (endOfDay) {
-    return staticText("endOfDayMessage");
+    return staticText(StaticMessage.endOfDay);
   } else {
-    switch (dayOfTheWeek) {
-      case 1:
-        currentSchedule = standardSchedule(mondayList, rightNow);
-        break;
-      case 2:
-        currentSchedule = standardSchedule(tuesdayList, rightNow);
-        break;
-      case 3:
-        currentSchedule = standardSchedule(wednesdayList, rightNow);
-        break;
-      case 4:
-        currentSchedule = standardSchedule(thursdayList, rightNow);
-        break;
-      case 5:
-        currentSchedule = standardSchedule(fridayList, rightNow);
-        break;
-      case 10:
-        currentSchedule = standardSchedule(lateArrivalList, rightNow);
-        break;
-      case 11:
-        currentSchedule = standardSchedule(earlyDismissal11_1List, rightNow);
-        break;
-      case 12:
-        currentSchedule = standardSchedule(earlyDismissal4_18List, rightNow);
-        break;
-
-      default:
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('Unknown day!', style: TextStyle(fontSize: 24)),
-            Icon(Icons.error, size: 50),
-          ],
-        );
-    }
+    currentSchedule = setSchedule(todaySchedule, rightNow);
   }
 
   return Column(
@@ -125,21 +79,15 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Spacer(
             flex: 1,
           ),
-          Expanded(
-              flex: 8,
-              child: ScheduleTile(text: currentSchedule.first.current)),
+          Expanded(flex: 8, child: ScheduleTile(text: currentSchedule.lunch1.current)),
           Spacer(
             flex: 1,
           ),
-          Expanded(
-              flex: 8,
-              child: ScheduleTile(text: currentSchedule.second.current)),
+          Expanded(flex: 8, child: ScheduleTile(text: currentSchedule.lunch2.current)),
           Spacer(
             flex: 1,
           ),
-          Expanded(
-              flex: 8,
-              child: ScheduleTile(text: currentSchedule.third.current)),
+          Expanded(flex: 8, child: ScheduleTile(text: currentSchedule.lunch3.current)),
           Spacer(
             flex: 1,
           ),
@@ -155,21 +103,21 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.first.ends, rightNow),
+            text: parseTime(currentSchedule.lunch1.ends, rightNow),
             group: minuteGroup,
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.second.ends, rightNow),
+            text: parseTime(currentSchedule.lunch2.ends, rightNow),
             group: minuteGroup,
           ),
           Spacer(
             flex: 1,
           ),
           MinuteTile(
-            text: parseTime(currentSchedule.third.ends, rightNow),
+            text: parseTime(currentSchedule.lunch3.ends, rightNow),
             group: minuteGroup,
           ),
           Spacer(
@@ -210,18 +158,15 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           Spacer(
             flex: 1,
           ),
-          Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.first.next)),
+          Expanded(flex: 8, child: ScheduleTile(text: currentSchedule.lunch1.next)),
           Spacer(
             flex: 1,
           ),
-          Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.second.next)),
+          Expanded(flex: 8, child: ScheduleTile(text: currentSchedule.lunch2.next)),
           Spacer(
             flex: 1,
           ),
-          Expanded(
-              flex: 8, child: ScheduleTile(text: currentSchedule.third.next)),
+          Expanded(flex: 8, child: ScheduleTile(text: currentSchedule.lunch3.next)),
           Spacer(
             flex: 1,
           ),

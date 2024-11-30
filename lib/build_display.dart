@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:lmmhsclock/domain/class_special_days.dart';
+import 'package:lmmhsclock/domain/enums.dart';
 import 'package:lmmhsclock/widget_static_messages.dart';
 
 import 'build_dynamic_school_day.dart';
 
-Column buildDisplay(DateTime rightNow, SpecialDay specialDay) {
+Column buildDisplay(DateTime rightNow, ScheduleType today) {
   // SpecialDay specialDay = specialDay[key] ?? SpecialDay(schedule: ScheduleType.standard, displayText: "");
 
   /// For a weekend
 
-  switch (specialDay.schedule) {
+  switch (today) {
     case ScheduleType.saturday:
     case ScheduleType.sunday:
-      return staticText("weekendMessage");
+      return staticText(StaticMessage.weekend);
     case ScheduleType.holiday:
-      return staticText('holidayMessage');
+      return staticText(StaticMessage.holiday);
     case ScheduleType.vacation:
-      return staticText("vacationMessage");
+      return staticText(StaticMessage.vacation);
     case ScheduleType.standard:
-    case ScheduleType.delayedStart10_28:
-    case ScheduleType.earlyDismissal11_1:
-    case ScheduleType.earlyDismissal4_18:
-      return dynamicSchoolDay(specialDay, rightNow);
+    case ScheduleType.delayedStart:
+    case ScheduleType.earlyDismissal:
+    case ScheduleType.pepRally:
+      return dynamicSchoolDay(today, rightNow);
     default:
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,

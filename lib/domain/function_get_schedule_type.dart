@@ -1,4 +1,4 @@
-import 'domain/class_special_days.dart';
+import 'enums.dart';
 
 ScheduleType getScheduleTypeForToday(DateTime date) {
   switch (date.weekday) {
