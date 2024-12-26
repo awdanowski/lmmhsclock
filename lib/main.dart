@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: StreamBuilder<DateTime>(
-                stream: currentTimeStream(),
+                stream: currentTimeStreamTester(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Column(
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         );
 
                     return Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
                           flex: 2,
@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 flex: 1,
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
-                                child: buildTime(rightNow),
+                                  child: buildTime(rightNow),
                                 ),
                               )
                             ],
@@ -158,35 +158,38 @@ class _MyHomePageState extends State<MyHomePage> {
                               Expanded(
                                 flex: 1,
                                 child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: AutoSizeText(
-                                      textAlign: TextAlign.center,
-                                      specialDay.displayText,
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.bold),
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: AutoSizeText(
+                                        textAlign: TextAlign.center,
+                                        specialDay.displayText,
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
+                                  ],
+                                ),
                               ),
                               Expanded(
                                 flex: 1,
                                 child: Row(
-                                children: [
-                                  Expanded(
+                                  children: [
+                                    Expanded(
                                       flex: 1,
                                       child: Container(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: buildDate(rightNow))),
-                                ],
+                                        padding: EdgeInsets.all(8.0),
+                                        child: buildDate(rightNow),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Expanded(
-                                  flex: 5,
-                                  child: buildDisplay(rightNow, specialDay)),
+                                flex: 5,
+                                child: buildDisplay(rightNow, specialDay),
+                              ),
                             ],
                           ),
                         ),

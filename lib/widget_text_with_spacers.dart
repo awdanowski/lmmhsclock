@@ -13,7 +13,8 @@ class TextWithSpacers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Expanded(
+      child: Row(
       children: [
         Spacer(flex: 2),
         Expanded(
@@ -30,6 +31,6 @@ class TextWithSpacers extends StatelessWidget {
         ),
         Spacer(flex: 2),
       ],
-    );
+    ));
   }
 }

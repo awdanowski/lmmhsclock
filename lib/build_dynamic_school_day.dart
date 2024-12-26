@@ -73,17 +73,18 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
   }
 
   return Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    spacing: 8.0,
+    mainAxisAlignment: MainAxisAlignment.start,
+    //mainAxisSize: MainAxisSize.max,
+    //crossAxisAlignment: CrossAxisAlignment.center,
+    //spacing: 8.0,
     children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextWithSpacers(text: "Currently:"),
-        ],
+      TextWithSpacers(
+        text: "Currently:",
+        textGroup: textGroup,
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //spacing: 16.0,
         children: [
           Spacer(
             flex: 1,
@@ -137,14 +138,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           ),
         ],
       ),
-      Container(
-        height: 10,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextWithSpacers(text: "Next Up:"),
-        ],
+      TextWithSpacers(
+        text: "Next Up:",
+        textGroup: textGroup,
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -169,9 +165,9 @@ Column dynamicSchoolDay(SpecialDay specialDay, DateTime rightNow) {
           ),
         ],
       ),
-      Container(
-        height: 10,
-      ),
+    SizedBox(
+            height: 16,
+          ),
     ],
   );
 }
