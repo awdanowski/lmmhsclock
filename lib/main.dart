@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: StreamBuilder<DateTime>(
-                stream: currentTimeStreamTester(),
+                stream: currentTimeStream(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Column(
