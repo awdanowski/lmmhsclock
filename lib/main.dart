@@ -5,7 +5,7 @@ import 'package:lmmhsclock/build_display.dart';
 import 'package:lmmhsclock/theme.dart';
 
 import 'build_date.dart';
-import 'build_logo.dart';
+import 'widget_logo.dart';
 import 'build_time.dart';
 import 'class_special_days.dart';
 import 'function_get_schedule_type.dart';
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: buildLogo(),
+                                child: LogoWidget(),
                               ),
                               Expanded(
                                 flex: 1,
@@ -139,13 +139,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: buildLogo(),
+                                child: LogoWidget(),
                               ),
                               Expanded(
                                 flex: 1,
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
-                                  child: buildTime(rightNow),
+                                child: buildTime(rightNow),
                                 ),
                               )
                             ],
@@ -158,30 +158,30 @@ class _MyHomePageState extends State<MyHomePage> {
                               Expanded(
                                 flex: 1,
                                 child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: AutoSizeText(
-                                        textAlign: TextAlign.center,
-                                        specialDay.displayText,
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            fontWeight: FontWeight.bold),
-                                      ),
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: AutoSizeText(
+                                      textAlign: TextAlign.center,
+                                      specialDay.displayText,
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
                               ),
                               Expanded(
                                 flex: 1,
                                 child: Row(
-                                  children: [
-                                    Expanded(
-                                        flex: 1,
-                                        child: Container(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: buildDate(rightNow))),
-                                  ],
+                                children: [
+                                  Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                          padding: EdgeInsets.all(8.0),
+                                          child: buildDate(rightNow))),
+                                ],
                                 ),
                               ),
                               Expanded(
@@ -204,62 +204,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       // bottomNavigationBar: BottomNavigationBarWidget(),
-    );
-  }
-}
-
-class BottomNavigationBarWidget extends StatelessWidget {
-  const BottomNavigationBarWidget({super.key});
-
-  void _openModal(BuildContext context, String schedule) {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          padding: EdgeInsets.all(16.0),
-          height: 200,
-          child: Center(
-            child: Text(
-              'Showing $schedule',
-              style: TextStyle(fontSize: 18),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.schedule),
-          label: '1st Lunch',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.schedule),
-          label: '2nd Lunch',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.schedule),
-          label: '3rd Lunch',
-        ),
-      ],
-      onTap: (index) {
-        // Handle button taps
-        switch (index) {
-          case 0:
-            _openModal(context, 'Schedule 1');
-            break;
-          case 1:
-            _openModal(context, 'Schedule 2');
-            break;
-          case 2:
-            _openModal(context, 'Schedule 3');
-            break;
-        }
-      },
     );
   }
 }
